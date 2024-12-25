@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodSync - Song Recommendations</title>
+    <style>
+        /* Global styles */
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Center the content */
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        label {
+            font-size: 18px;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        /* Select box styling */
+        select {
+            background-color: #1e1e1e;
+            color: #ddd;
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 350px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #0a74da;
+            outline: none;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #0a74da;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        button:hover {
+            background-color: #0658b2;
+        }
+
+        button:active {
+            background-color: #064c9d;
+        }
+
+        /* Error message */
+        .error {
+            color: #ff4d4d;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+
+            select, button {
+                font-size: 16px;
+                padding: 10px;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            select, button {
+                font-size: 14px;
+                padding: 8px;
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MoodSync</h1>
+        <form action="/" method="POST">
+            <label for="mood">Mood:</label>
+            <select name="mood" id="mood">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="romantic">Romantic</option>
+                <option value="energetic">Energetic</option>
+                <option value="relaxed">Relaxed</option>
+            </select>
+            <button type="submit">Let's Go</button>
+        </form>
+
+        <!-- Error message will appear here if there's an error -->
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
